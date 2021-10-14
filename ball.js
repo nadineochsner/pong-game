@@ -12,7 +12,9 @@ function setup() {
 
 function draw() {
     background(0);
-    fill(255,255,255);
+
+    // Farbe des Balls
+    fill(255, 0, 255);
     noStroke();     
     circle (x, y, d);
 
