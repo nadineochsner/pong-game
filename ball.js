@@ -13,6 +13,9 @@ function setup() {
 function draw() {
     background(0);
 
+rect (mouseX,height-20,60,60);
+// if (y> height &&...) hier liegt die loesung irgendwo
+
     // Farbe des Balls
     fill(255, 0, 255);
     noStroke();     
