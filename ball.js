@@ -3,6 +3,7 @@ let y;
 let speedX = 2;
 let speedY = 5;
 let d = 200;
+let score = 0
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -12,9 +13,15 @@ function setup() {
 
 function draw() {
     background(0);
+    fill(0,0,255);
+    rect (mouseX,height-30,60,30);
+    rect (mouseX,0-10,60,30);
 
-rect (mouseX,height-20,60,60);
-// if (y> height &&...) hier liegt die loesung irgendwo
+
+    //Score
+    fill(255,255,255);
+    textSize(20);
+    text("Score: " + score, 30, 40);
 
     // Farbe des Balls
     fill(255, 0, 255);
@@ -31,6 +38,14 @@ rect (mouseX,height-20,60,60);
     if (y > height - d/2 || y < d/2) {
         speedY = -speedY;
     }
+
+    // Schlag/Score
+    if ((x > mouseX && x < mouseX + 90) 
+    && (y + 10 >= height)) {
+    speedX = -speedX;
+    speedY = -speedY;
+    score++;
+}
 
 }
 
