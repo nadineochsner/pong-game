@@ -47,7 +47,6 @@ function draw() {
     }
 
     // Schlag/Score
-    
     if ((x > mouseX && x < mouseX + paddleWidth) 
     && (y + (d/2) >= mouseX)) {
     speedX = -speedX;
