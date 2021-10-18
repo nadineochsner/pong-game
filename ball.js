@@ -1,10 +1,10 @@
-let x;
+let x; 
 let y;
-let speedX = 3;
-let speedY = 6;
+let speedX = 7;
+let speedY = 10;
 let d = 200;
 let score = 0
-
+let colorBG = 0;
 let paddleWidth = 100;
 let paddleHeight = 30;
 
@@ -15,16 +15,18 @@ function setup() {
 }
 
 function draw() {
-    background(0);
-    fill(0,0,255);
+    R = mouseX/2; // farbe hintergrund random wechsel
+    background(colorBG);
+    fill(R,120,120);
     rect (mouseX,height-30,paddleWidth,paddleHeight);
     //rect (mouseX,0-10,paddleWidth,paddleHeight);
 
 
     //Score
     fill(255,255,255);
-    textSize(20);
-    text("Score: " + score, 30, 40);
+    textSize(50);
+    let cWidth = textWidth("Score:");
+    text("Score: " + score, windowWidth/2 - cWidth/2, windowHeight/2);
 
     
     // Farbe des Balls
@@ -37,10 +39,12 @@ function draw() {
 
     if (x > width - d/2 || x < d/2) {
         speedX = -speedX;
+        colorBG = 100;
     }
 
     if (y > height - d/2 || y < d/2) {
         speedY = -speedY;
+        colorBG = 0;
     }
 
     // Schlag/Score
@@ -50,10 +54,13 @@ function draw() {
     speedX = -speedX;
     speedY = -speedY;
     score++;
-    
-}
+    }
 
-
+    if (mouseIsPressed) {
+        circle(x, y, d*2);
+      } else {
+        circle(x, y, d);
+      }
 
 }
 
