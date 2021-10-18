@@ -1,15 +1,12 @@
 let x;
 let y;
-let speedX = 2;
-let speedY = 5;
+let speedX = 3;
+let speedY = 6;
 let d = 200;
 let score = 0
 
 let paddleWidth = 100;
-let paddleHeight = 25;
-
-let xBall = Math.floor(Math.random() * 300) + 50;
-let yBall = 50;
+let paddleHeight = 30;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -21,7 +18,7 @@ function draw() {
     background(0);
     fill(0,0,255);
     rect (mouseX,height-30,paddleWidth,paddleHeight);
-    rect (mouseX,0-10,paddleWidth,paddleHeight);
+    //rect (mouseX,0-10,paddleWidth,paddleHeight);
 
 
     //Score
@@ -47,8 +44,9 @@ function draw() {
     }
 
     // Schlag/Score
+
     if ((x > mouseX && x < mouseX + paddleWidth) 
-    && (y + (d/2) >= mouseX)) {
+    && (y + (d/2) >= windowHeight - paddleHeight)) {
     speedX = -speedX;
     speedY = -speedY;
     score++;
